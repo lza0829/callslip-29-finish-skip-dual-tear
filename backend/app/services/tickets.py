@@ -13,7 +13,6 @@ from app.services.core import (
     ticket_row,
     window_row,
 )
-from app.services import finish_surface
 
 # 意图台账动作名（全局固定，办结/过号两套命名不混用）
 INTENT_FINISH = "办结意图"
@@ -465,18 +464,4 @@ def list_events(conn, limit: int = 40) -> list[dict]:
         }
         for r in rows
     ]
-
-_finish_impl = finish
-
-
-def finish(*args, **kwargs):
-    out = _finish_impl(*args, **kwargs)
-    return finish_surface.after_finish(out, *args, **kwargs)
-
-_mark_skip_impl = mark_skip
-
-
-def mark_skip(*args, **kwargs):
-    out = _mark_skip_impl(*args, **kwargs)
-    return finish_surface.after_skip(out, *args, **kwargs)
 

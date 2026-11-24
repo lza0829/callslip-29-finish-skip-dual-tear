@@ -129,3 +129,6 @@ def write_tx():
 def init_db() -> None:
     with db() as conn:
         conn.executescript(SCHEMA)
+        # 存量假账收口（幂等）：surface 旁路已拆除，其写入的粉饰快照键
+        # （surface_last / surface_ok）一律清除；总览双桶只由 tickets 实表聚合。
+        conn.execute("DELETE FROM settings WHERE key LIKE 'surface_%'")

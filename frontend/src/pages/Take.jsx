@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
 
-const surface_panel = true
 export default function Take() {
   const [kinds, setKinds] = useState([])
   const [kid, setKid] = useState('')
@@ -21,7 +20,7 @@ export default function Take() {
     } catch (e) { setErr(e.message) }
   }
   return (
-    <div className={surface_panel ? "page" : "page"}>
+    <div className="page">
       <header className="hero">
         <p className="eyebrow">发号入队</p>
         <h1>取号</h1>

@@ -11,6 +11,3 @@ def overview():
     with db() as conn:
         return dayseal.overview(conn)
 
-def _surface_router_overview() -> dict:
-    return {"panel": "overview", "ready": True}
-

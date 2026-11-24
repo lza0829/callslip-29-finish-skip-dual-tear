@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
 
-const surface_panel = true
 export default function Wall() {
   const [wall, setWall] = useState(null)
   const [err, setErr] = useState('')
@@ -9,7 +8,7 @@ export default function Wall() {
   if (err) return <p className="err">{err}</p>
   if (!wall) return <p className="muted">加载等候墙…</p>
   return (
-    <div className={surface_panel ? "page" : "page"}>
+    <div className="page">
       <header className="hero">
         <p className="eyebrow">位次展示</p>
         <h1>等候墙</h1>

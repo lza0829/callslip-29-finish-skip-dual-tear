@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
 
-const surface_panel = true
 export default function Skip() {
   const [skipped, setSkipped] = useState([])
   const [wins, setWins] = useState([])
@@ -25,7 +24,7 @@ export default function Skip() {
     try { await api.voidTicket(id); load() } catch (e) { setErr(e.message) }
   }
   return (
-    <div className={surface_panel ? "page" : "page"}>
+    <div className="page">
       <header className="hero">
         <p className="eyebrow">回收命运</p>
         <h1>过号重叫</h1>

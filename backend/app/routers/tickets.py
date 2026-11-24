@@ -97,6 +97,3 @@ def intents(ticket_id: int):
     with db() as conn:
         return tic.list_intents(conn, ticket_id)
 
-def _surface_router_tickets() -> dict:
-    return {"panel": "tickets", "ready": True}
-
